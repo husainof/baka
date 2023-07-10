@@ -1,0 +1,18 @@
+/* CartPage */
+.section{
+    background-color: #d2c9ff;
+    
+}
+
+.CardDitail{
+    border-radius: 15px;
+}
+
+.summary{
+    background: rgb(202, 202, 202);
+}
+
+/* HomePage */
+.texthome{
+    font-size: 30px;
+}
