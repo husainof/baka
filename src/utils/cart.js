@@ -1,6 +1,6 @@
 class Cart {
   constructor() {
-    this.cart = [];
+    this.cart = JSON.parse(localStorage.getItem("cart")) ?? [];
   }
 
   getCart() {
@@ -14,6 +14,7 @@ class Cart {
   removeFromCart(id) {
     const newCart = this.cart.filter((item) => item.id !== id);
     this.cart = newCart;
+    this.saveCart();
   }
 
   setQuantity(id, quantity) {
@@ -25,7 +26,7 @@ class Cart {
         return item;
       }
     });
-    console.log(this.cart);
+    this.saveCart();
   }
 
   getTotalCount() {
@@ -55,7 +56,11 @@ class Cart {
       newCart.splice(itemIndex, 1, newItem);
       this.cart = newCart;
     }
-    console.log(this.cart);
+    this.saveCart();
+  }
+
+  saveCart() {
+    localStorage.setItem("cart", JSON.stringify(this.cart));
   }
 }
 
